@@ -241,3 +241,84 @@ Status: PASS
 **Status:** FAIL
 
 **Defect ID:** BUG-001
+
+---
+
+## TC-11 — Verify Date Generation Triggers
+
+**Priority:** Medium
+
+**Test Data:**
+- Number of Dates = 5
+- Start Date = 2024-01-01 00:00:00
+- End Date = 2024-12-31 23:59:59
+- Date Output Format = MM-DD-YYYY
+
+**Test Steps:**
+1. Generate 5 random dates using the specified parameters.
+2. Click the Generate button again without changing any parameters.
+3. Change the number of dates from 5 to 3.
+4. Modify the start date.
+5. Modify the end date.
+6. Change the date output format.
+7. Observe whether the output updates after each action.
+
+**Expected Result:** Clicking Generate produces valid random dates. Changes to input parameters are reflected in the generated output, either automatically or after explicit generation.
+
+**Actual Result:** Clicking the Generate button and modifying the date count, start date, end date, or output format all triggered date generation automatically. The output responded to each tested action.
+
+**Status:** PASS
+
+**Note:** The application uses automatic regeneration when input parameters change. This behavior may be intentional. Consider preserving existing dates when users change only the display format.
+
+---
+
+## TC-12 — Copy and Download Generated Dates
+
+**Priority:** Medium
+
+**Test Data:**
+- Number of Dates = 5
+- Start Date = 2024-01-01 00:00:00
+- End Date = 2024-12-31 23:59:59
+- Date Output Format = MM-DD-YYYY
+
+**Test Steps:**
+1. Generate 5 random dates.
+2. Click the Copy button.
+3. Paste the copied content into a text editor.
+4. Compare the pasted content with the generated output.
+5. Click the Download button.
+6. Open the downloaded file.
+7. Compare the downloaded content with the generated output.
+
+**Expected Result:** Both the copied and downloaded content match the generated dates, including the number of dates, their values, and their formatting.
+
+**Actual Result:** Both the copied and downloaded content matched the generated output, including the date count, values, and formatting. The downloaded file opened successfully.
+
+**Status:** PASS
+
+---
+
+## TC-13 — Large Date Count and Performance
+
+**Priority:** Medium
+
+**Test Data:**
+- Number of Dates = 10,000 and 100,000
+- Date range = 2024-01-01 to 2024-12-31
+- Date Output Format = MM-DD-YYYY
+
+**Test Steps:**
+1. Set the number of dates to 10,000.
+2. Observe the application's responsiveness.
+3. Increase the number of dates to 100,000.
+4. Observe whether the application remains responsive.
+
+**Expected Result:** The application should handle large requests gracefully, either by generating the dates or providing appropriate feedback when resource limits are reached. No maximum count or response-time requirement is documented.
+
+**Actual Result:** Noticeable lag occurred when requesting 10,000 dates. When the requested count was increased to 100,000, the page became unresponsive.
+
+**Status:** OBSERVED — Performance Concern
+
+**Improvement Candidate:** Consider introducing a maximum date count, input validation, or safeguards to prevent excessive requests from making the page unresponsive.
