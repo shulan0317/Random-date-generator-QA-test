@@ -42,7 +42,9 @@ The generated dates do not consistently follow the selected custom format. This 
 
 ## Evidence
 
-Screenshots showing malformed month names in the generated output.
+Screenshot 1 — Initial occurrence
+
+Screenshot 2 — Reproduction
 
 ## Possible Cause (Unconfirmed)
 
