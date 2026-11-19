@@ -25,18 +25,18 @@ The objective was to evaluate the generator's core functionality, input validati
 A total of 14 test cases were designed, covering normal inputs, boundary conditions, invalid dates, custom formatting, generation triggers, and copy/download functionality.
 
 | Result | Count |
+|---|---:|
 | Passed | 12 |
 | Failed | 1 |
 | Performance Observation | 1 |
 | **Total** | **14** |
-
-*The summary assumes TC-02 was executed successfully. If not, its status and the counts should be updated.*
 
 ### Automated Testing Results
 
 Three Playwright automated tests were implemented using JavaScript and Chromium.
 
 | Test ID | Description | Result |
+|---|---|---|
 | AT-00 | Verify the generator page loads | PASS |
 | AT-01 | Verify the requested number of dates is generated | PASS |
 | AT-02 | Verify generated dates are valid and within the specified range | PASS |
@@ -62,6 +62,7 @@ The issue was reproduced across multiple test runs and documented with screensho
 ## Test Deliverables
 
 | Document | Description |
+|---|---|
 | [Manual Test Cases](test-cases/manual-test-cases.md) | Test scenarios, steps, expected results, and execution outcomes |
 | [Test Report](reports/test-report.md) | Test scope, approach, execution summary, findings, and limitations |
 | [BUG-001 Report](reports/bug-report-01.md) | Reproduction steps, expected versus actual behavior, and supporting evidence |
