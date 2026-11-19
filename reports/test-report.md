@@ -41,6 +41,7 @@ Manual testing was performed through the browser interface. Automated smoke and 
 ### Manual Testing Summary
 
 | Metric | Result |
+|---|---:|
 | Total Test Cases | 14 |
 | Passed | 12 |
 | Failed | 1 |
@@ -49,6 +50,7 @@ Manual testing was performed through the browser interface. Automated smoke and 
 ### Manual Test Case Results
 
 | Test Case | Description | Result |
+|---|---|---|
 | TC-01 | Generate a valid number of dates | PASS |
 | TC-02 | Generate a single date | PASS |
 | TC-03 | Handle zero date count | PASS |
