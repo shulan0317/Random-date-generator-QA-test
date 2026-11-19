@@ -7,7 +7,8 @@
 ## TC-01 — Generate a Valid Number of Random Dates
 
 **Priority:** High  
-**Test Data:** Number of Dates = 5; default date range
+**Test Data:** 
+- Number of Dates = 5; default date range
 
 **Test Steps:**
 1. Open the Random Date Generator.
@@ -27,7 +28,8 @@
 ## TC-02 — Generate a Single Random Date
 
 **Priority:** High  
-**Test Data:** Number of Dates = 1; default date range
+**Test Data:** 
+- Number of Dates = 1; default date range
 
 **Test Steps:**
 1. Set the number of dates to 1.
@@ -46,7 +48,8 @@
 ## TC-03 — Generate Zero Random Dates
 
 **Priority:** High  
-**Test Data:** Number of Dates = 0; default date range
+**Test Data:** 
+- Number of Dates = 0; default date range
 
 **Test Steps:**
 1. Set the number of dates to 0.
@@ -60,14 +63,15 @@
 
 **Status:** PASS
 
-Improvement Candidate: Consider displaying a validation message for negative date counts to help users understand why no results were generated.
+**Improvement Candidate:** Consider displaying a validation message for zero date counts to help users understand why no results were generated.
 
 ---
 
 ## TC-04 — Generate Negative Random Dates
 
 **Priority:** High  
-**Test Data:** Number of Dates = -1; default date range
+**Test Data:** 
+- Number of Dates = -1; default date range
 
 **Test Steps:**
 1. Set the number of dates to -1.
@@ -81,7 +85,7 @@ Improvement Candidate: Consider displaying a validation message for negative dat
 
 **Status:** PASS
 
-Improvement Candidate: Consider displaying a validation message for negative date counts to help users understand why no results were generated.
+**Improvement Candidate:** Consider displaying a validation message for negative date counts to help users understand why no results were generated.
 
 ---
 
@@ -103,7 +107,7 @@ Improvement Candidate: Consider displaying a validation message for negative dat
 6. Verify that exactly 10 dates are generated.
 7. Verify that every generated date falls within the specified range.
 
-**Expected Result:** Exactly 10 valid dates are generated, and every date falls between January 1, 2024, and December 31, 2024.
+**Expected Result:** Exactly 10 valid dates are generated, and every date falls between January 1, 2026, and December 31, 2026.
 
 **Actual Result:** Exactly 10 valid dates were generated, all within the specified date range (2026-01-01 to 2026-12-31).
 
@@ -128,9 +132,9 @@ Improvement Candidate: Consider displaying a validation message for negative dat
 4. Click the Generate Random Date button.
 5. Verify the generated dates.
 
-**Expected Result:** Exactly 5 dates are generated, all corresponding to June 15, 2024.
+**Expected Result:** Exactly 5 dates are generated, all corresponding to June 15, 2024 12:30:00.
 
-**Actual Result:** Exactly 5 dates were generated, all displaying 06-15-2024.
+**Actual Result:** Exactly 5 dates were generated, all displaying 06-15-2024 12:30:00.
 
 **Status:** PASS
 
@@ -160,7 +164,7 @@ Improvement Candidate: Consider displaying a validation message for negative dat
 
 **Status:** PASS
 
-Improvement Candidate: Consider notifying users when the date range is automatically reversed to make the behavior more transparent.
+**Improvement Candidate:** Consider notifying users when the date range is automatically reversed to make the behavior more transparent.
 
 ---
 
@@ -173,6 +177,14 @@ Improvement Candidate: Consider notifying users when the date range is automatic
 - Start Date = 2024-02-29 00:00:00
 - End Date = 2024-02-29 23:59:59
 - Date Output Format = MM-DD-YYYY hh:mm:ss
+
+**Test Steps:**
+1. Set the number of dates to 5.
+2. Set the start date to 2024-02-29 00:00:00.
+3. Set the end date to 2024-02-29 23:59:59.
+4. Click the Generate Random Date button.
+5. Observe the generated dates and any validation messages.
+6. Verify that all generated dates correspond to February 29, 2024.
 
 **Expected Result:** Exactly 5 valid dates are generated, all displaying 02-29-2024.
 
@@ -192,11 +204,20 @@ Improvement Candidate: Consider notifying users when the date range is automatic
 - End Date = 2025-02-29 23:59:59
 - Date Output Format = MM-DD-YYYY hh:mm:ss
 
+**Test Steps:**
+1. Set the number of dates to 5.
+2. Set the start date to 2025-02-29 00:00:00.
+3. Set the end date to 2025-02-29 23:59:59.
+4. Click the Generate Random Date button.
+5. Observe the generated dates and any validation messages.
+6. Verify that the nonexistent date 02-29-2025 is not generated.
+7. Check whether the application provides validation or normalization feedback.
+
 **Expected Result:** The application does not generate the nonexistent date 02-29-2025. Invalid date input should be handled safely.
 
 **Actual Result:** When the invalid date 2025-02-29 was entered as both the start and end dates, the generator produced 03-01-2025. However, both input fields continued to display 2025-02-29, and no validation or normalization message was shown.
 
-Status: PASS
+**Status:** PASS
 
 **Note:** Date validity check passed. However, the application silently normalized the invalid input without updating the input fields or notifying the user.
 
