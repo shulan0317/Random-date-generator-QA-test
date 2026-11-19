@@ -4,6 +4,7 @@
 **Priority:** High  
 **Status:** Open  
 **Test Case:** TC-10
+**Environment:** Windows 10, Google Chrome
 
 ## Description
 
@@ -28,9 +29,9 @@ All generated dates should contain correctly spelled English month names, such a
 
 Some generated dates contain malformed month names, including:
 
-- `1900 Augu11t 2
-- `1900 Marc0 3
-- `1900 Nove53ber 6
+- `1900 Augu11t 2`
+- `1900 Marc0 3`
+- `1900 Nove53ber 6`
 
 ## Reproducibility
 
@@ -43,8 +44,10 @@ The generated dates do not consistently follow the selected custom format. This 
 ## Evidence
 
 Screenshot 1 — Initial occurrence
+![Initial occurrence](../evidence/bug-001-first-occurrence.png)
 
 Screenshot 2 — Reproduction
+![Reproduction](../evidence/bug-001-reproduction.png)
 
 ## Possible Cause (Unconfirmed)
 
