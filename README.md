@@ -68,6 +68,7 @@ The issue was reproduced across multiple test runs and documented with screensho
 | [BUG-001 Report](reports/bug-report-01.md) | Reproduction steps, expected versus actual behavior, and supporting evidence |
 | [Evidence](evidence/) | Screenshots documenting the reproduced defect |
 | [Playwright Automation](automation/) | Three automated smoke and functional tests, including source code and dependencies |
+| [Feature Improvement Report](reports/feature-improvement-01.md) | Four usability and performance improvement recommendations |
 
 ## Conclusion
 
