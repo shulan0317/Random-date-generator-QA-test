@@ -5,7 +5,7 @@
 **Application Under Test:** Code Beautify Random Date Generator  
 **URL:** https://codebeautify.org/generate-random-date  
 **Test Environment:** Windows 10, Google Chrome  
-**Testing Type:** Manual Functional Testing and Exploratory Testing
+**Testing Type:** Manual Functional Testing, Exploratory Testing, and Playwright Automated Testing
 
 ### Objective
 
@@ -34,21 +34,21 @@ The following testing techniques were applied:
 - **Exploratory Testing:** Investigating unexpected formatting behavior and automatic regeneration.
 - **Basic Performance Exploration:** Observing responsiveness with large date counts.
 
-Testing was performed manually through the browser interface.
+Manual testing was performed through the browser interface. Automated smoke and functional tests were implemented using Playwright with JavaScript.
 
 ## 3. Test Execution Summary
 
+### Manual Testing Summary
+
 | Metric | Result |
-|---|---|
 | Total Test Cases | 14 |
 | Passed | 12 |
 | Failed | 1 |
 | Performance Observation | 1 |
 
-### Test Case Results
+### Manual Test Case Results
 
 | Test Case | Description | Result |
-|---|---|---|
 | TC-01 | Generate a valid number of dates | PASS |
 | TC-02 | Generate a single date | PASS |
 | TC-03 | Handle zero date count | PASS |
@@ -66,6 +66,34 @@ Testing was performed manually through the browser interface.
 
 Detailed test cases and execution results are documented in [Manual Test Cases](../test-cases/manual-test-cases.md).
 
+### Automated Testing Results
+
+Three automated tests were implemented using Playwright with JavaScript and Chromium.
+
+| Test ID | Description | Result |
+|---|---|---|
+| AT-00 | Verify the Random Date Generator page loads | PASS |
+| AT-01 | Verify the requested number of dates is generated | PASS |
+| AT-02 | Verify generated dates are valid and within the specified date range | PASS |
+
+**Execution Summary:** 3 passed, 0 failed.
+
+**Environment:** Windows 10, Playwright 1.64.1, Chromium.
+
+The automated tests provide basic smoke and functional regression coverage. Manual testing was used for broader input validation, boundary testing, exploratory testing, and defect discovery.
+
+The automated test source code is available in the [automation directory](../automation/).
+
+#### Running the Automated Tests
+
+From the `automation` directory, run:
+
+```bash
+npm ci
+npx playwright install chromium
+npx playwright test --workers=1
+```
+
 ## 4. Defects Identified
 
 ### BUG-001 — Malformed Month Names in Custom Date Format
@@ -78,9 +106,9 @@ When using the custom date format `YYYY month d`, the generator sometimes produc
 
 Examples:
 
-- `1900 Augu11t 2`
-- `1900 Marc0 3`
-- `1900 Nove53ber 6`
+- `1900 Augu11t 2
+- `1900 Marc0 3
+- `1900 Nove53ber 6
 
 The issue was reproduced across multiple generation attempts.
 
@@ -114,15 +142,18 @@ No formal response-time requirement or maximum supported date count was availabl
 
 ## 6. Test Limitations
 
-- Testing was conducted manually in Google Chrome on Windows 10.
-- Cross-browser and mobile compatibility were not evaluated.
-- No automated test suite was implemented.
+- Manual testing was conducted in Google Chrome on Windows 10.
+- Automated testing was conducted using Playwright with Chromium on Windows 10.
+- Automated coverage was limited to three smoke and functional test scenarios.
+- Cross-browser compatibility across different browser engines (e.g., Firefox and WebKit) and mobile compatibility were not evaluated.
 - Performance observations were qualitative; no benchmark measurements were collected.
 - Some expected behaviors were based on reasonable QA assumptions because detailed product requirements were unavailable.
 
 ## 7. Conclusion
 
 The Random Date Generator passed the majority of the executed functional test cases, including standard date generation, date range handling, predefined formats, and copy/download functionality.
+
+Additionally, three Playwright automated tests passed successfully, covering page loading, generated date count, and date range validation.
 
 One reproducible functional defect was identified in custom date formatting, where full month names were corrupted.
 
